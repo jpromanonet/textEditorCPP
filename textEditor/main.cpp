@@ -1,6 +1,7 @@
 #include <Windows.h>
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+void SaveFile(HWND hwnd);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow)
 {
@@ -42,6 +43,38 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
     return msg.wParam;
 }
 
+void SaveFile(HWND hwnd) {
+    OPENFILENAMEW ofn; // Use the wide character version of OPENFILENAME
+    wchar_t fileName[MAX_PATH] = L""; // Use wide character string literal
+
+    ZeroMemory(&ofn, sizeof(ofn));
+    ofn.lStructSize = sizeof(ofn);
+    ofn.hwndOwner = hwnd;
+    ofn.lpstrFilter = L"Text Files (*.txt)\0*.txt\0All Files (*.*)\0*.*\0";
+    ofn.lpstrFile = fileName;
+    ofn.nMaxFile = MAX_PATH;
+    ofn.Flags = OFN_EXPLORER | OFN_OVERWRITEPROMPT;
+
+    if (GetSaveFileNameW(&ofn)) { // Use GetSaveFileNameW for wide character version
+        HWND hEdit = GetDlgItem(hwnd, 1);
+        int textLength = GetWindowTextLength(hEdit);
+
+        wchar_t* buffer = new wchar_t[textLength + 1];
+        GetWindowTextW(hEdit, buffer, textLength + 1); // Use GetWindowTextW
+
+        HANDLE hFile;
+        hFile = CreateFileW(fileName, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+        if (hFile != INVALID_HANDLE_VALUE) {
+            DWORD bytesWritten;
+            WriteFile(hFile, buffer, textLength * sizeof(wchar_t), &bytesWritten, NULL);
+            CloseHandle(hFile);
+        }
+
+        delete[] buffer;
+    }
+}
+
+
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     HDC hdc;
@@ -68,6 +101,14 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
     case WM_SETFOCUS:
         SetFocus(GetDlgItem(hwnd, 1));
+        break;
+
+    case WM_COMMAND:
+        switch (LOWORD(wParam)) {
+        case 2: // Save button clicked
+            SaveFile(hwnd);
+            break;
+        }
         break;
 
     case WM_PAINT:

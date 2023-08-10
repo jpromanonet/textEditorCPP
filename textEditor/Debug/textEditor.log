@@ -1,1 +1,13 @@
-﻿  textEditor.vcxproj -> C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\textEditor\Debug\textEditor.exe
+﻿  main.cpp
+C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\textEditor\main.cpp(52,23): error C2440: '=': cannot convert from 'const char [46]' to 'LPCWSTR'
+C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\textEditor\main.cpp(52,23): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
+C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\textEditor\main.cpp(53,21): error C2440: '=': cannot convert from 'char [260]' to 'LPWSTR'
+C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\textEditor\main.cpp(53,21): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
+C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\textEditor\main.cpp(61,9): error C2664: 'int GetWindowTextW(HWND,LPWSTR,int)': cannot convert argument 2 from 'char *' to 'LPWSTR'
+C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\textEditor\main.cpp(61,30): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\winuser.h(8931,1): message : see declaration of 'GetWindowTextW'
+C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\textEditor\main.cpp(61,9): message : while trying to match the argument list '(HWND, char *, int)'
+C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\textEditor\main.cpp(63,24): error C2664: 'HANDLE CreateFileW(LPCWSTR,DWORD,DWORD,LPSECURITY_ATTRIBUTES,DWORD,DWORD,HANDLE)': cannot convert argument 1 from 'char [260]' to 'LPCWSTR'
+C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\textEditor\main.cpp(63,35): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\fileapi.h(92,1): message : see declaration of 'CreateFileW'
+C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\textEditor\main.cpp(63,24): message : while trying to match the argument list '(char [260], long, int, int, int, int, int)'
