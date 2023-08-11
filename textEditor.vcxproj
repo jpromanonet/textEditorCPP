@@ -128,10 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="navbar.cpp" />
     <ClCompile Include="open.cpp" />
     <ClCompile Include="save.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="navbar.h" />
     <ClInclude Include="open.h" />
     <ClInclude Include="save.h" />
   </ItemGroup>

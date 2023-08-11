@@ -19,6 +19,15 @@
     <Filter Include="Modules\FileHandling">
       <UniqueIdentifier>{e0aabf57-0d10-42f2-abec-9d7ae7740af3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Modules\Navbar">
+      <UniqueIdentifier>{58661004-acd1-4a3c-94e4-5af928e6aafe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FileHandling">
+      <UniqueIdentifier>{6f372b49-9c97-4258-85fe-298bf48d0682}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Navbar">
+      <UniqueIdentifier>{39a0ea70-34d8-4715-943f-b69a271f20a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -30,13 +39,19 @@
     <ClCompile Include="open.cpp">
       <Filter>Modules\FileHandling</Filter>
     </ClCompile>
+    <ClCompile Include="navbar.cpp">
+      <Filter>Modules\Navbar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="save.h">
-      <Filter>Modules\FileHandling</Filter>
-    </ClInclude>
     <ClInclude Include="open.h">
-      <Filter>Modules\FileHandling</Filter>
+      <Filter>Header Files\FileHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="save.h">
+      <Filter>Header Files\FileHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="navbar.h">
+      <Filter>Header Files\Navbar</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
