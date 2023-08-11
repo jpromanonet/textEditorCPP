@@ -1,2 +1,3 @@
-﻿  navbar.cpp
+﻿  main.cpp
+C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\main.cpp(63,15): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
   textEditor.vcxproj -> C:\Users\JuanPabloRomano\Documents\git\textEditorCPP\x64\Debug\textEditor.exe
